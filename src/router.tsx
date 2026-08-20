@@ -1,9 +1,11 @@
+import { RootLayout } from '@/components/layout/RootLayout'
 import { Button } from '@/components/shared/Button'
 import { PiggyBank } from 'lucide-react'
 import { createBrowserRouter } from 'react-router-dom'
 
 export const router = createBrowserRouter([
   {
+    element: <RootLayout />,
     children: [
       {
         path: '/',
@@ -11,9 +13,6 @@ export const router = createBrowserRouter([
         (
           <>
               <h1>Formulário de Simulação</h1>
-              <Button variant='primary' icon={PiggyBank}>
-                Clique Aqui
-              </Button>
           </>
         ),
       },
