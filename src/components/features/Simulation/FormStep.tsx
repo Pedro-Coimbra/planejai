@@ -18,7 +18,7 @@ export interface FormStepProps {
 }
 export interface ActionButtonsProps {
   onBack: () => void
-  onNext: () => void
+  onNext: (value: string) => void
   hideBackButton?: boolean
 }
 
@@ -42,7 +42,7 @@ export function FormStep({
       return
     }
 
-    onNext()
+    onNext(inputValue)
   }
 
   return (
@@ -80,7 +80,7 @@ export function FormStep({
             </Button>
           )}
           <Button
-            onClick={onNext}
+            // onClick={onNext}
             disabled={!inputValue}
             type="submit"
             variant="primary"
