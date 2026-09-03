@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { buildAIPrompt } from '@/data/aiPrompt'
+import type { SimulationRecord } from '@/data/simulation'
 import { useSimulationStorage } from '@/hooks/useSimulationStorage'
 import { getInsight, type InsightData } from '@/services/aiService'
-import type { SimulationRecord } from '@/data/simulation'
 
 export const useInsight = (id: string) => {
   const isRequestPending = useRef(false)

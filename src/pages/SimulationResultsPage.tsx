@@ -1,21 +1,18 @@
-import { AIInsightsCard } from "@/components/features/Simulation/AIInsgihtCardProps";
-import { Card } from "@/components/features/Simulation/Cards";
-import { PageHero } from "@/components/shared/PageHero";
-import type { SimulationFormData } from "@/data/simulation";
-import { useSimulationStorage } from "@/hooks/useSimulationStorage";
-import { calcMonthlySavings } from "@/utils/simulation";
-import { CalendarClock, CreditCardIcon, Goal, Landmark, PiggyBank, Wallet } from "lucide-react";
-import { useParams } from "react-router-dom";
+import {
+  CalendarClock,
+  CreditCardIcon,
+  Goal,
+  Landmark,
+  PiggyBank,
+  Wallet,
+} from 'lucide-react'
+import { useParams } from 'react-router-dom'
 
-
-const mock: SimulationFormData = {
-  income: 'R$ 5.000,00',
-  expenses: 'R$ 2.000,00',
-  debts: 'R$ 500,00',
-  goalName: 'Viagem para o Japão',
-  goalAmount: 'R$ 15.000,00',
-  goalDeadline: '12',
-}
+import { AIInsightsCard } from '@/components/features/Simulation/AIInsgihtCardProps'
+import { Card } from '@/components/features/Simulation/Cards'
+import { PageHero } from '@/components/shared/PageHero'
+import { useSimulationStorage } from '@/hooks/useSimulationStorage'
+import { calcMonthlySavings } from '@/utils/simulation'
 
 export function SimulationResultsPage() {
   const { id } = useParams<{ id: string }>()
@@ -27,7 +24,6 @@ export function SimulationResultsPage() {
   }
 
   const monthlySavings = calcMonthlySavings(data)
-
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:py-14">

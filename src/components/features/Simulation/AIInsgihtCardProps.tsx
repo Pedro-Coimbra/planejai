@@ -1,6 +1,7 @@
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import Skeleton from 'react-loading-skeleton'
+
 import { Error } from '@/components/features/insights/Error'
 import { useInsight } from '@/hooks/useInsight'
 import { Content } from '@/components/features/insights/Content'
