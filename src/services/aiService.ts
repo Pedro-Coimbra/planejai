@@ -39,9 +39,31 @@ const callGeminiAPI = async (prompt: string) => {
   return (await response.json()) as GeminiResponse
 }
 
+const getResponseText = (response: GeminiResponse) => {
+  const text = response.candidates[0]?.content.parts[0]?.text
+
+  if (!text) {
+    throw new Error('Resposta da IA vazia.')
+  }
+
+  return text.trim()
+}
+
+const normalizeJsonResponse = (text: string) => {
+  return text
+    .replace(/^```json\s*/i, '')
+    .replace(/^```\s*/i, '')
+    .replace(/```$/i, '')
+    .trim()
+}
 
 export const getInsight = async (prompt: string) => {
   const response = await callGeminiAPI(prompt)
-  const json = response.candidates[0].content.parts[0].text
+  const json = normalizeJsonResponse(getResponseText(response))
   return JSON.parse(json) as InsightData
+}
+
+export const getChatAnswer = async (prompt: string) => {
+  const response = await callGeminiAPI(prompt)
+  return getResponseText(response)
 }
